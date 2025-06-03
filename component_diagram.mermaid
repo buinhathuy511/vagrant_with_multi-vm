@@ -1,0 +1,52 @@
+flowchart TD
+    subgraph My Computer
+        vagrant["Vagrant CLI"]
+        vfile["Vagrantfile"]
+        dotenv[".env File"]
+        hostmanager["Host Manager Plugin"]
+        
+        subgraph VirtualBox
+            vbox["VirtualBox"]
+            
+            subgraph VM1
+                vm1["Virtual Machine 1<br/>VM1"]
+                vm1_ip["IP: 192.168.1.11"]
+                vm1_prov["Provision Script"]
+            end
+            
+            subgraph VM2
+                vm2["Virtual Machine 2<br/>VM2"]
+                vm2_ip["IP: 192.168.1.12"]
+                vm2_prov["Provision Script"]
+            end
+            
+            subgraph VM3
+                vm3["Virtual Machine 3<br/>VM3"]
+                vm3_ip["IP: 192.168.1.13"]
+                vm3_prov["Provision Script"]
+            end
+        end
+    end
+
+    %% Relationships
+    vagrant -->|"reads"| vfile
+    vfile -->|"loads variables"| dotenv
+    vfile -->|"configures"| vbox
+    vfile -->|"uses"| hostmanager
+    
+    vbox -->|"creates"| VM1
+    vbox -->|"creates"| VM2
+    vbox -->|"creates"| VM3
+    
+    vm1 --> vm1_ip
+    vm2 --> vm2_ip
+    vm3 --> vm3_ip
+    
+    vm1 -->|"runs"| vm1_prov
+    vm2 -->|"runs"| vm2_prov
+    vm3 -->|"runs"| vm3_prov
+    
+
+    hostmanager -->|"manages"| vm1_ip
+    hostmanager -->|"manages"| vm2_ip
+    hostmanager -->|"manages"| vm3_ip
