@@ -69,7 +69,7 @@ vagrant destroy
 
 ## Project Structure
 
-├── README.md
+├── README.md # Project documentation
 ├── Vagrantfile # Main Vagrant configuration file
 ├── provision.sh # Automated installation script (NGINX)
 ├── .env.example # Example environment variables
