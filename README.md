@@ -68,13 +68,13 @@ vagrant destroy
 ```
 
 ## Project Structure
-
+```
 ├── README.md # Project documentation
 ├── Vagrantfile # Main Vagrant configuration file
 ├── provision.sh # Automated installation script (NGINX)
 ├── .env.example # Example environment variables
 └── .env # Environment configuration (create from .env.example)
-
+```
 ## Features
 
 - Automatic creation of multiple identical VMs
