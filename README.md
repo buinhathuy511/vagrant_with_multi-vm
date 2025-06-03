@@ -68,3 +68,23 @@ vagrant destroy
 ```
 
 ## Project Structure
+
+├── README.md
+├── Vagrantfile # Main Vagrant configuration file
+├── provision.sh # Automated installation script (NGINX)
+├── .env.example # Example environment variables
+└── .env # Environment configuration (create from .env.example)
+
+## Features
+
+- Automatic creation of multiple identical VMs
+- NGINX pre-installed on each VM
+- Automatic hostname management
+- Pre-configured private network
+- Easy customization through environment variables
+
+## Important Notes
+
+- The hostmanager plugin works best with Vagrant version 2.4.6 and VirtualBox version 7.1.4
+- Make sure to create your `.env` file from `.env.example` before running `vagrant up`
+- Each VM will be accessible via its hostname (configured through hostmanager)
